@@ -16,7 +16,7 @@ Include this line in the head of your html page:
 Afterwards you can use the covid19 data in your javascript. Some samples are below:
 
 ```
-var data = covid19.data();
+covid19.data();
 
 [
   {"date":"2020-01-22","country_region":"Japan","lat":36,"lng":138,"deaths":0,"confirmed":2,"recovered":0,"new":{"deaths":0,"confirmed":2,"recovered":0}},
@@ -27,7 +27,7 @@ var data = covid19.data();
 ```
 
 ```
-data.latest();
+var data = covid19.data();
 data.latest();
 
 [
