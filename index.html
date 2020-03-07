@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>covid19js</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Robert Fuller">
+    <meta name="keywords" content="Coronavirus, COVID-19, Javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+    <script src="dist/covid19.js"></script>
+    <script>
+        var append = function(elid,text){
+            var el = document.getElementById(elid);
+            var innerText = el.innerText;
+            el.innerText = innerText + "\n" + text;
+        }
+        var appendSome = function(elid,data,n=3){
+            var result = data.slice(0,n).map(s=>"  "+JSON.stringify(s)).join(",\n");
+            append(elid,"[\n"+result+",\n  ...\n]");
+        }
+        var appendJSON = function(el,o){
+            append(el,JSON.stringify(o,null,2));
+        }
+    </script>
+</head>
+<body>
+
+<h1>covid19js</h1>
+<p>Last updated <span id="updated">(javascript required)</span></p>
+<p>Coronavirus COVID-19 outbreak data with zero dependencies, for web developers.</p>
+<p>Updated often and easy to use.</p>
+<pre><code id="ex01" class="javascript">var data = covid19.data();
+</code></pre>
+<script>
+    var data = covid19.data();
+    appendSome("ex01",data);
+</script>
+
+<pre><code id="ex02" class="javascript">data.latest();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest();
+    appendSome("ex02",result);
+</script>
+
+
+<pre><code id="ex03" class="javascript">data.latest().totals();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().totals();
+    appendJSON("ex03",result);
+
+</script>
+<p>Filter as you would with any javascript array</p>
+<pre><code id="ex04" class="javascript">data.latest().filter(x=>x.country_region==="US");
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().filter(x=>x.country_region==="US");
+    appendSome("ex04",result);
+</script>
+
+<pre><code id="ex04a" class="javascript">data.latest().filter(x=>x.country_region==="US").totals();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().filter(x=>x.country_region==="US").totals();
+    appendJSON("ex04a",result);
+</script>
+<p>Filter for leaflet map bounds</p>
+<pre><code id="ex04b" class="javascript">var bounds = L.latLngBounds(
+        L.latLng(6.7499552751, 36.619987291),
+        L.latLng(18.4802470232, 47.1153931748));
+data.filter(x=>bounds.contains(L.latLng(x.lat,x.lng)));
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.filter(x=>x.country_region==="Italy");
+    appendSome("ex04b",result);
+</script>
+
+<p>Group by country (must filter to a single date first)</p>
+<pre><code id="ex05" class="javascript">data.latest().groupByCountryRegion();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().groupByCountryRegion();
+    appendSome("ex05",result);
+</script>
+<p>Group by date with or without filtering first</p>
+<pre><code id="ex06" class="javascript">data.filter(x=>x.country_region==="US").groupByDate();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.filter(x=>x.country_region==="US").groupByDate();
+    appendSome("ex06",result);
+</script>
+
+<pre><code id="ex07" class="javascript">data.groupByDate();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.groupByDate();
+    appendSome("ex07",result);
+</script>
+
+<script>
+    document.getElementById("updated").innerText = covid19.last_updated;
+</script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
