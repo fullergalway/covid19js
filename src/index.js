@@ -1,7 +1,15 @@
+require('./decompress');
+const _v = JSON.parse(require('./tmp/values').covid19js_decompress());
+while(_v[0]>0)_v.unshift(_v[0]-1);
+const u = (s)=>{
+    let rows = JSON.parse(s.covid19js_decompress());
+    let o = rows.map(keys=>keys.map(k=>k===null?null:k===""?"":_v[k]));
+    return {header:o.shift(), data:o};
+}
 const covid19data = {
-    confirmed: require('./tmp/confirmed'),
-    recovered: require('./tmp/recovered'),
-    deaths: require('./tmp/deaths')
+    confirmed: u(require('./tmp/confirmed')),
+    recovered: u(require('./tmp/recovered')),
+    deaths: u(require('./tmp/deaths'))
 }
 
 class Covid19Array extends Array{
