@@ -16,21 +16,25 @@ Include this line in the head of your html page:
 Afterwards you can use the covid19 data in your javascript. Some samples are below:
 
 ```
-var data = covid19.data();[
-  {"date":"2020-01-22","country_region":"Japan","lat":36,"lng":138,"deaths":0,"confirmed":2,"recovered":0,"new":  {"deaths":0,"confirmed":2,"recovered":0}},
+var data = covid19.data();
+
+[
+  {"date":"2020-01-22","country_region":"Japan","lat":36,"lng":138,"deaths":0,"confirmed":2,"recovered":0,"new":{"deaths":0,"confirmed":2,"recovered":0}},
   {"date":"2020-01-22","country_region":"Macau","province_state":"Macau","lat":22.1667,"lng":113.55,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":1,"recovered":0}},
   {"date":"2020-01-22","country_region":"Mainland China","province_state":"Anhui","lat":31.8257,"lng":117.2264,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":1,"recovered":0}},
-...
+  ...
 ]
 ```
 
 ```
 data.latest();
+data.latest();
+
 [
-{"date":"2020-03-06","country_region":"Afghanistan","lat":33,"lng":65,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":0,"recovered":0}},
-{"date":"2020-03-06","country_region":"Algeria","lat":28.0339,"lng":1.6596,"deaths":0,"confirmed":17,"recovered":0,"new":{"deaths":0,"confirmed":5,"recovered":0}},
-{"date":"2020-03-06","country_region":"Andorra","lat":42.5063,"lng":1.5218,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":0,"recovered":0}},
-...
+  {"date":"2020-03-06","country_region":"Afghanistan","lat":33,"lng":65,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":0,"recovered":0}},
+  {"date":"2020-03-06","country_region":"Algeria","lat":28.0339,"lng":1.6596,"deaths":0,"confirmed":17,"recovered":0,"new":{"deaths":0,"confirmed":5,"recovered":0}},
+  {"date":"2020-03-06","country_region":"Andorra","lat":42.5063,"lng":1.5218,"deaths":0,"confirmed":1,"recovered":0,"new":{"deaths":0,"confirmed":0,"recovered":0}},
+  ...
 ]
 ```
 
