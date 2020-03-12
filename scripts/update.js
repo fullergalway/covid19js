@@ -1,6 +1,13 @@
 const git = require('simple-git')
 const fs = require('fs');
 const csv = require('csvtojson');
+const isomap = require("../src/isomap");
+const isomapout = {};
+var isomap_changed = false;
+const wc = require("which-country");
+const getCountryISO3 = require("country-iso-2-to-3");
+const getCountryISO2 = require("country-iso-3-to-2");
+
 const variables = ["Confirmed","Deaths","Recovered"];
 require("../src/compress");
 
@@ -29,16 +36,22 @@ const csv2js = () => {
     return values.indexOf(v);
 
   }
+  const writeModule = (data,filename,pretty) => {
+    data = pretty?JSON.stringify(data,null,2):JSON.stringify(data);
+    fs.unlink(filename, ()=>{
+        let out = fs.createWriteStream(filename);
+        out.write("module.exports = ");
+        out.write(data);
+        out.write(";");
+        out.end();
+      });
+  }
   const writeValues = () => {
     let filename = "src/tmp/values.js";
-    fs.unlink(filename,()=>{
-      let out = fs.createWriteStream(filename);
-      out.write("module.exports = ");
-      out.write(JSON.stringify(JSON.stringify(values.slice(FIXED_VALUES-1)).covid19js_compress()));
-      out.write(";");
-      out.end();
-    });
+    let data = values.slice(FIXED_VALUES-1);
+    writeModule(JSON.stringify(data).covid19js_compress(), filename);
   }
+
   variables.forEach(variable=>{
    let filename = "src/tmp/"+variable.toLowerCase()+".js";
    fs.unlink(filename, ()=>{
@@ -50,16 +63,43 @@ const csv2js = () => {
            .then(lines=>{
              //header = lines.shift();
              // in csv output number remain as strings...?
-             let data = lines.map(line=>line.map(map))
+             var data = lines.map(line=>line.map(map))
              //let result = { header: header, data: data}
              out.write('`');
              out.write(JSON.stringify(data).covid19js_compress());//.replace(/,0/g,','));
              out.write('`;');
+             for(var i=1; i<lines.length; i++){
+                data = lines[i];
+                let country = (""+data[1]).trim();
+                let isocountry = country.toLowerCase()
+                                .replace("st.","saint")
+                                .replace(/ sar$/,"");
+                if(!(isomap[isocountry]&&isomap[isocountry][0])){
+                    let lat = parseFloat(data[2]);
+                    let lng = parseFloat(data[3]);
+                    var b = wc([lng,lat]);
+                    var a;
+                    if(b){
+                       a = getCountryISO2(b);
+                    }
+                    isomap[isocountry] = [a,b];
+                    isomap_changed = true;
+                }
+                isomapout[country] = isomap[country.toLowerCase()];
+             }
            })
            .then(()=>{
               out.end();
               if(variables.indexOf(variable) === variables.length-1){
+                // compress isomap.js
+                let isomapout_compressed = {}
+                Object.keys(isomapout).forEach(key=>isomapout_compressed[map(key)]=isomapout[key]);
+                writeModule(JSON.stringify(isomapout_compressed).covid19js_compress(), "src/tmp/isomap.js");
                 writeValues();
+                if(isomap_changed){
+                  console.log(isomap);
+                    writeModule(isomap, "src/isomap.js",true);
+                }
               }
             });
     });

@@ -6,10 +6,17 @@ const u = (s)=>{
     let o = rows.map(keys=>keys.map(k=>k===null?null:k===""?"":_v[k]));
     return {header:o.shift(), data:o};
 }
+const w = (s)=>{
+    let o = {};
+    let hash = JSON.parse(s.covid19js_decompress());
+    Object.keys(hash).forEach(k=>o[_v[k]]=hash[k]);
+    return o;
+}
 const covid19data = {
     confirmed: u(require('./tmp/confirmed')),
     recovered: u(require('./tmp/recovered')),
-    deaths: u(require('./tmp/deaths'))
+    deaths: u(require('./tmp/deaths')),
+    isomap: w(require('./tmp/isomap'))
 }
 
 class Covid19Array extends Array{
@@ -27,6 +34,11 @@ class Covid19Array extends Array{
             result.push(fn(this.filter(d=>d[key]===data[i]),data[i]));
         }
         return result;
+    }
+    _assertMaxOneDate(methodCalled) {
+        if(this.dates().length > 1){
+            throw new Error("developer: filter data to a single date before calling "+methodCalled+"()");
+        }
     }
     latest(){
         const dates = this.dates();
@@ -46,17 +58,29 @@ class Covid19Array extends Array{
         return this.__map(this.countryRegions(),"country_region",fn);
     }
     groupByCountryRegion() {
-        if(this.dates().length > 1){
-            throw new Error("developer: filter data to a single date before calling groupByCountryRegion.");
-        }
+        this._assertMaxOneDate("groupByCountryRegion")
         return this.mapCountryRegions(x=>x.totals());
     }
-    totals() {
-        if(this.dates().length > 1){
-            throw new Error("developer: filter data to a single date before calling totals.");
+    locations() {
+        const locations = {};
+        this.forEach(e=>locations[[e.lat,e.lng].join(",")] = {lat: e.lat, lng: e.lng});
+        return Object.keys(locations).map(k=>locations[k]);
+    }
+    groupByLocation() {
+        this._assertMaxOneDate("groupByLocation");
+        const locations = this.locations();
+        const result = [];
+        for(var i=0;i<locations.length;i++){
+            result.push(this.filter(d=>d.lat===locations[i].lat&&d.lng===locations[i].lng).totals());
         }
+        return result;
+    }
+    totals() {
+        this._assertMaxOneDate("totals");
         const totals = {
                 date: null,
+                country_iso2: null,
+                country_iso3: null,
                 country_region: null,
                 province_state: null,
                 lat: null,
@@ -79,6 +103,8 @@ class Covid19Array extends Array{
                     totals.province_state = o.province_state;
                 }
                 totals.country_region = o.country_region;
+                totals.country_iso2 = o.country_iso2;
+                totals.country_iso3 = o.country_iso3;
                 totals.lat = o.lat;
                 totals.lng = o.lng;
                 totals.date = o.date;
@@ -91,6 +117,10 @@ class Covid19Array extends Array{
                     delete totals.country_region;
                     delete totals.lat;
                     delete totals.lng;
+                }
+                if(totals.country_iso2 !== o.country_iso2){
+                    delete totals.country_iso2;
+                    delete totals.country_iso3;
                 }
                 if(most >=0 && o.confirmed > most){
                     //hard to average these really.
@@ -134,8 +164,12 @@ const a2o = function(a,key){
         let lng = row[3];
         let prev = 0;
         for(let i=4; i<n;i++){
+            let country_iso2 = covid19data.isomap[country_region]?covid19data.isomap[country_region][0]:null;
+            let country_iso3 = covid19data.isomap[country_region]?covid19data.isomap[country_region][1]:null;
             let o = {
                 date: parseDate(header[i]).toISOString().substring(0,10),
+                country_iso2: country_iso2,
+                country_iso3: country_iso3,
                 country_region: country_region,
                 province_state: province_state,
                 lat: lat,
@@ -149,8 +183,12 @@ const a2o = function(a,key){
                     recovered: 0,
                 }
             };
-            if(province_state === null){
+            if(province_state === null || province_state === ""){
                 delete o.province_state;
+            }
+            if(!country_iso2){
+                delete o.country_iso2;
+                delete o.country_iso3;
             }
             o[key] = row[i];
             o.new[key] = row[i] - prev;
