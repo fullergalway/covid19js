@@ -7,6 +7,8 @@ var isomap_changed = false;
 const wc = require("which-country");
 const getCountryISO3 = require("country-iso-2-to-3");
 const getCountryISO2 = require("country-iso-3-to-2");
+const country_continent = require("../src/country_continent");
+const continents_out = {};
 
 const variables = ["Confirmed","Deaths","Recovered"];
 require("../src/compress");
@@ -36,21 +38,28 @@ const csv2js = () => {
     return values.indexOf(v);
 
   }
-  const writeModule = (data,filename,pretty) => {
+  const writeModule = (data,filepath,pretty) => {
     data = pretty?JSON.stringify(data,null,2):JSON.stringify(data);
-    fs.unlink(filename, ()=>{
-        let out = fs.createWriteStream(filename);
+    fs.unlink(filepath, ()=>{
+        let out = fs.createWriteStream(filepath);
         out.write("module.exports = ");
         out.write(data);
         out.write(";");
         out.end();
       });
   }
+  const writeModuleCompressed = (data,filepath) =>{
+        let compressed = {}
+        Object.keys(data).sort().forEach(key=>compressed[map(key)]=data[key]);
+        writeModule(JSON.stringify(compressed).covid19js_compress(), filepath);
+  }
+
   const writeValues = () => {
     let filename = "src/tmp/values.js";
     let data = values.slice(FIXED_VALUES-1);
     writeModule(JSON.stringify(data).covid19js_compress(), filename);
   }
+
 
   variables.forEach(variable=>{
    let filename = "src/tmp/"+variable.toLowerCase()+".js";
@@ -86,15 +95,15 @@ const csv2js = () => {
                     isomap_changed = true;
                 }
                 isomapout[country] = isomap[country.toLowerCase()];
+                continents_out[isomap[isocountry][0]] = country_continent[isomap[isocountry][0]];
              }
            })
            .then(()=>{
               out.end();
               if(variables.indexOf(variable) === variables.length-1){
                 // compress isomap.js
-                let isomapout_compressed = {}
-                Object.keys(isomapout).forEach(key=>isomapout_compressed[map(key)]=isomapout[key]);
-                writeModule(JSON.stringify(isomapout_compressed).covid19js_compress(), "src/tmp/isomap.js");
+                writeModuleCompressed(isomapout,"src/tmp/isomap.js");
+                writeModuleCompressed(continents_out,"src/tmp/continents.js",true);
                 writeValues();
                 if(isomap_changed){
                   console.log(isomap);

@@ -1,23 +1,4 @@
-require('./decompress');
-const _v = JSON.parse(require('./tmp/values').covid19js_decompress());
-while(_v[0]>0)_v.unshift(_v[0]-1);
-const u = (s)=>{
-    let rows = JSON.parse(s.covid19js_decompress());
-    let o = rows.map(keys=>keys.map(k=>k===null?null:k===""?"":_v[k]));
-    return {header:o.shift(), data:o};
-}
-const w = (s)=>{
-    let o = {};
-    let hash = JSON.parse(s.covid19js_decompress());
-    Object.keys(hash).forEach(k=>o[_v[k]]=hash[k]);
-    return o;
-}
-const covid19data = {
-    confirmed: u(require('./tmp/confirmed')),
-    recovered: u(require('./tmp/recovered')),
-    deaths: u(require('./tmp/deaths')),
-    isomap: w(require('./tmp/isomap'))
-}
+const unpack = require('./unpack');
 
 class Covid19Array extends Array{
     dates() {
@@ -51,6 +32,16 @@ class Covid19Array extends Array{
     groupByDate() {
         return this.mapDates(data=>data.totals());
     }
+    continents() {
+        return this.__keys("continent");
+    }
+    mapContinents(fn) {
+     return this.__map(this.continents(),"continent",fn);
+    }
+    groupByContinent() {
+        this._assertMaxOneDate("groupByContinent")
+        return this.mapContinents(x=>x.totals());
+    }
     countryRegions() {
         return this.__keys("country_region");
     }
@@ -81,6 +72,7 @@ class Covid19Array extends Array{
                 date: null,
                 country_iso2: null,
                 country_iso3: null,
+                continent: null,
                 country_region: null,
                 province_state: null,
                 lat: null,
@@ -88,6 +80,7 @@ class Covid19Array extends Array{
                 confirmed: 0,
                 deaths: 0,
                 recovered: 0,
+                live: 0,
                 new: {
                     confirmed: 0,
                     deaths: 0,
@@ -105,6 +98,7 @@ class Covid19Array extends Array{
                 totals.country_region = o.country_region;
                 totals.country_iso2 = o.country_iso2;
                 totals.country_iso3 = o.country_iso3;
+                totals.continent = o.continent;
                 totals.lat = o.lat;
                 totals.lng = o.lng;
                 totals.date = o.date;
@@ -121,6 +115,9 @@ class Covid19Array extends Array{
                 if(totals.country_iso2 !== o.country_iso2){
                     delete totals.country_iso2;
                     delete totals.country_iso3;
+                }
+                if(totals.continent !== o.continent){
+                    delete totals.continent;
                 }
                 if(most >=0 && o.confirmed > most){
                     //hard to average these really.
@@ -139,6 +136,9 @@ class Covid19Array extends Array{
         if(totals.province_state === null){
             delete totals.province_state;
         }
+        if(totals.confirmed){
+            totals.live = totals.confirmed - totals.deaths - totals.recovered;
+        }
         return totals;
     }
     on(date) {
@@ -153,7 +153,7 @@ const parseDate = function(date){
     d.setDate(mdy[1]);
     return d;
 }
-const a2o = function(a,key){
+const a2o = function(cv19d,a,key){
     const header = a.header;
     let n = header.length;
     let results = [];
@@ -164,12 +164,14 @@ const a2o = function(a,key){
         let lng = row[3];
         let prev = 0;
         for(let i=4; i<n;i++){
-            let country_iso2 = covid19data.isomap[country_region]?covid19data.isomap[country_region][0]:null;
-            let country_iso3 = covid19data.isomap[country_region]?covid19data.isomap[country_region][1]:null;
+            let country_iso2 = cv19d.isomap[country_region]?cv19d.isomap[country_region][0]:null;
+            let country_iso3 = cv19d.isomap[country_region]?cv19d.isomap[country_region][1]:null;
+            let continent = cv19d.continents[country_iso2];
             let o = {
                 date: parseDate(header[i]).toISOString().substring(0,10),
                 country_iso2: country_iso2,
                 country_iso3: country_iso3,
+                continent: continent,
                 country_region: country_region,
                 province_state: province_state,
                 lat: lat,
@@ -177,6 +179,7 @@ const a2o = function(a,key){
                 deaths: 0,
                 confirmed: 0,
                 recovered: 0,
+                live: 0,
                 new: {
                     deaths: 0,
                     confirmed: 0,
@@ -190,20 +193,26 @@ const a2o = function(a,key){
                 delete o.country_iso2;
                 delete o.country_iso3;
             }
+            if(!continent){
+                delete o.continent;
+            }
             o[key] = row[i];
             o.new[key] = row[i] - prev;
             prev = row[i];
             results.push(o);
         }
     });
-    return results;
+    return live(results);
 }
-var expandMergeCovid19Data = function(){
+const live = (data) => {
+    return data.map(e=>{e.live=0;if(e.confirmed){e.live=e.confirmed-e.deaths-e.recovered}; return e;})
+}
+const expandMergeCovid19Data = function(cv19d){
     const keyed = {};
     const key = o=>`${o.province_state}|${o.country_region}|${o.date}`;
-    var results = a2o(covid19data.confirmed,"confirmed");
+    var results = a2o(cv19d,cv19d.confirmed,"confirmed");
     results.forEach(o=>keyed[key(o)]=o);
-    const deaths = a2o(covid19data.deaths,"deaths");
+    const deaths = a2o(cv19d,cv19d.deaths,"deaths");
     deaths.forEach(o=>{
         if(!keyed[key(o)]){
             keyed[key(o)] = o;
@@ -212,7 +221,7 @@ var expandMergeCovid19Data = function(){
         keyed[key(o)].deaths = o.deaths;
         keyed[key(o)].new.deaths = o.new.deaths;
     });
-    const recovered = a2o(covid19data.recovered,"recovered");
+    const recovered = a2o(cv19d,cv19d.recovered,"recovered");
     recovered.forEach(o=>{
         if(!keyed[key(o)]){
             keyed[key(o)] = o;
@@ -233,15 +242,52 @@ var expandMergeCovid19Data = function(){
     })
     return results;
 }
-const expanded = expandMergeCovid19Data();
-const covid19 = {
-    last_updated: expanded[expanded.length-1].date,
-    data: ()=>{
-        let data = new Covid19Array();
-        // make a deep copy
-        JSON.parse(JSON.stringify(expanded)).forEach(x=>data.push(x));
-        return data;
+class Covid19 {
+    constructor(covid19data){
+        this.expanded = expandMergeCovid19Data(covid19data);
+        this._lastrefresh = 0;
+    }
+    data(){
+        var a = new Covid19Array();
+                // make a deep copy
+        JSON.parse(JSON.stringify(this.expanded)).forEach(x=>a.push(x));
+        return a;
+    }
+    refresh(verbose){
+        var now = new Date().getTime();
+        // not more than once per minute
+        if(now - this._lastrefresh < 60000){
+            if(verbose) console.log("skipping refresh (too soon)");
+            return this._fetchpromise;
+        }
+        this._lastrefresh = now;
+        this._fetchpromise = fetch("/dist/updated.json?"+now)
+            .then((response)=>{
+                return response.json();
+            })
+            .then(function(last_updated){
+                if(this.last_updated === undefined || this.last_updated === last_updated){
+                    this.last_updated = last_updated;
+                    if(verbose) console.log("skipping refresh (no new data)");
+                    return this.data();
+                }
+                return fetch("/dist/covid19data.json?"+new Date().getTime())
+                    .then(function(response){
+                        return response.json();   
+                    }).then(function(data){
+                        let unpacked = unpack(data);
+                        let other = new Covid19(unpacked);
+                        this.expanded = other.expanded;
+                        this.last_updated = last_updated;
+                        if(verbose) console.log("covid19 refreshed "+last_updated)
+                        return this.data();
+                    }.bind(this));
+            }.bind(this));
+        return this._fetchpromise;
     }
 }
 
+const covid19data = unpack(require('./covid19data'));
+const covid19 = new Covid19(covid19data);
+covid19.refresh();
 module.exports = covid19; 

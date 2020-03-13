@@ -27,7 +27,7 @@
 <body>
 
 <h1>covid19js</h1>
-<p>Latest data <span id="updated">(javascript required)</span></p>
+<p>Latest data <span id="updated"></span></p>
 <p>Coronavirus COVID-19 outbreak data with zero dependencies, for web developers.</p>
 <p>Data is generated from <a href="https://github.com/CSSEGISandData/COVID-19">2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE</a></p>
 <p>Updated often and easy to use.</p>
@@ -36,6 +36,16 @@
 <p>Include this line in the head of your html page:</p>
 <pre><code class="html">&lt;script src="https://covid19js.com/dist/covid19.js"&gt;&lt;/script&gt;</code></pre>
 <p>Afterwards you can use the covid19 data in your javascript</p>
+<pre><code id="ex03" class="javascript">var data = covid19.data();
+data.latest().totals();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().totals();
+    appendJSON("ex03",result);
+</script>
+
+
 <pre><code id="ex01" class="javascript">var data = covid19.data();
 </code></pre>
 <script>
@@ -51,15 +61,6 @@
     appendSome("ex02",result);
 </script>
 
-
-<pre><code id="ex03" class="javascript">data.latest().totals();
-</code></pre>
-<script>
-    var data = covid19.data();
-    var result = data.latest().totals();
-    appendJSON("ex03",result);
-
-</script>
 <p>Filter as you would with any javascript array</p>
 <pre><code id="ex04" class="javascript">data.latest().filter(x=>x.country_region==="US");
 </code></pre>
@@ -88,6 +89,15 @@ data.filter(x=>bounds.contains(L.latLng(x.lat,x.lng)));
     appendSome("ex04b",result);
 </script>
 
+<p>Group by continent (must filter to a single date first)</p>
+<pre><code id="ex09" class="javascript">data.latest().groupByContinent();
+</code></pre>
+<script>
+    var data = covid19.data();
+    var result = data.latest().groupByContinent();
+    appendSome("ex09",result);
+</script>
+
 <p>Group by country (must filter to a single date first)</p>
 <pre><code id="ex05" class="javascript">data.latest().groupByCountryRegion();
 </code></pre>
@@ -113,8 +123,23 @@ data.filter(x=>bounds.contains(L.latLng(x.lat,x.lng)));
     appendSome("ex07",result);
 </script>
 
+<h2>Promise based refresh to get updated data from server</h2>
+
+<p>Max once per minute, reasonably efficient by fetching change timestamp first.</p>
+<pre><code id="ex08" class="javascript">covid19.refresh().then(data=>{
+    console.log(covid19.last_updated));
+    console.log(data.latest().groupByLocation())
+}
+</code></pre>
 <script>
-    document.getElementById("updated").innerText = covid19.last_updated;
+    covid19.refresh().then((data)=>{
+        append("ex08",covid19.last_updated);
+        appendSome("ex08", data.latest().groupByLocation())
+    })
+</script>
+
+<script>
+    covid19.refresh().then(()=>document.getElementById("updated").innerText = covid19.last_updated);
 </script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
