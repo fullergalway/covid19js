@@ -126,12 +126,12 @@ class Covid19Array extends Array{
                     most = o.confirmed;
                 }
             }
-            totals.deaths += o.deaths;
-            totals.confirmed += o.confirmed;
-            totals.recovered += o.recovered;
-            totals.new.deaths += o.new.deaths;
-            totals.new.confirmed += o.new.confirmed;
-            totals.new.recovered += o.new.recovered;
+            totals.deaths += (o.deaths||0);
+            totals.confirmed += (o.confirmed||0);
+            totals.recovered += (o.recovered||0);
+            totals.new.deaths += (o.new.deaths||0);
+            totals.new.confirmed += (o.new.confirmed||0);
+            totals.new.recovered += (o.new.recovered||0);
         }
         if(totals.province_state === null){
             delete totals.province_state;
