@@ -46,6 +46,7 @@ data.latest().totals();
 </script>
 
 
+<p>Use covid19.data() to create a new clean copy of the data</p>
 <pre><code id="ex01" class="javascript">var data = covid19.data();
 </code></pre>
 <script>
@@ -53,12 +54,28 @@ data.latest().totals();
     appendSome("ex01",data);
 </script>
 
+<p>Use latest() to get data for the most recent date</p>
 <pre><code id="ex02" class="javascript">data.latest();
 </code></pre>
 <script>
     var data = covid19.data();
     var result = data.latest();
     appendSome("ex02",result);
+</script>
+
+<p>List of dates, continents, countryRegions, locations</p>
+<pre><code id="ex10" class="javascript">var data = covid19.data();
+</code></pre>
+<script>
+    var data = covid19.data();
+    append("ex10","data.dates().reverse();")
+    appendSome("ex10",data.dates().reverse());
+    append("ex10","data.continents();")
+    appendSome("ex10",data.continents());
+    append("ex10","data.countryRegions();")
+    appendSome("ex10",data.countryRegions());
+    append("ex10","data.locations();")
+    appendSome("ex10",data.locations());
 </script>
 
 <p>Filter as you would with any javascript array</p>
@@ -127,13 +144,13 @@ data.filter(x=>bounds.contains(L.latLng(x.lat,x.lng)));
 
 <p>Max once per minute, reasonably efficient by fetching change timestamp first.</p>
 <pre><code id="ex08" class="javascript">covid19.refresh().then(data=>{
-    console.log(covid19.last_updated));
+    console.log(covid19.last_updated);
     console.log(data.latest().groupByLocation())
-}
+});
 </code></pre>
 <script>
     covid19.refresh().then((data)=>{
-        append("ex08",covid19.last_updated);
+        appendJSON("ex08",covid19.last_updated);
         appendSome("ex08", data.latest().groupByLocation())
     })
 </script>

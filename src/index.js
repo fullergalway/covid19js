@@ -261,7 +261,7 @@ class Covid19 {
             return this._fetchpromise;
         }
         this._lastrefresh = now;
-        this._fetchpromise = fetch("/dist/updated.json?"+now)
+        this._fetchpromise = fetch("https://covid19js.com/dist/updated.json?"+now)
             .then((response)=>{
                 return response.json();
             })
@@ -271,7 +271,7 @@ class Covid19 {
                     if(verbose) console.log("skipping refresh (no new data)");
                     return this.data();
                 }
-                return fetch("/dist/covid19data.json?"+new Date().getTime())
+                return fetch("https://covid19js.com/dist/covid19data.json?"+new Date().getTime())
                     .then(function(response){
                         return response.json();   
                     }).then(function(data){
