@@ -1,7 +1,7 @@
 #!/bin/sh -e
 date
 cd $(dirname $0)/..
-#git pull
+git pull
 #npm install
 npm run build
 git status | grep -q "nothing to commit" || {
