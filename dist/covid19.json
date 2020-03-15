@@ -10700,12 +10700,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 350,
-    "confirmed": 11177,
     "recovered": 295,
-    "live": 11177,
+    "live": 0,
     "new": {
       "deaths": 101,
-      "confirmed": 4024,
+      "confirmed": null,
       "recovered": 127
     }
   },
@@ -11954,12 +11953,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 414,
-    "confirmed": 13522,
     "recovered": 386,
-    "live": 13522,
+    "live": 0,
     "new": {
       "deaths": 64,
-      "confirmed": 2345,
+      "confirmed": null,
       "recovered": 91
     }
   },
@@ -13245,12 +13243,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 479,
-    "confirmed": 16678,
     "recovered": 522,
-    "live": 16678,
+    "live": 0,
     "new": {
       "deaths": 65,
-      "confirmed": 3156,
+      "confirmed": null,
       "recovered": 136
     }
   },
@@ -14536,12 +14533,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 549,
-    "confirmed": 19665,
     "recovered": 633,
-    "live": 19665,
+    "live": 0,
     "new": {
       "deaths": 70,
-      "confirmed": 2987,
+      "confirmed": null,
       "recovered": 111
     }
   },
@@ -15827,12 +15823,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 618,
-    "confirmed": 22112,
     "recovered": 817,
-    "live": 22112,
+    "live": 0,
     "new": {
       "deaths": 69,
-      "confirmed": 2447,
+      "confirmed": null,
       "recovered": 184
     }
   },
@@ -17118,12 +17113,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 699,
-    "confirmed": 24953,
     "recovered": 1115,
-    "live": 24953,
+    "live": 0,
     "new": {
       "deaths": 81,
-      "confirmed": 2841,
+      "confirmed": null,
       "recovered": 298
     }
   },
@@ -18428,12 +18422,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 780,
-    "confirmed": 27100,
     "recovered": 1439,
-    "live": 27100,
+    "live": 0,
     "new": {
       "deaths": 81,
-      "confirmed": 2147,
+      "confirmed": null,
       "recovered": 324
     }
   },
@@ -19738,12 +19731,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 871,
-    "confirmed": 29631,
     "recovered": 1795,
-    "live": 29631,
+    "live": 0,
     "new": {
       "deaths": 91,
-      "confirmed": 2531,
+      "confirmed": null,
       "recovered": 356
     }
   },
@@ -21048,12 +21040,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 974,
-    "confirmed": 31728,
     "recovered": 2222,
-    "live": 31728,
+    "live": 0,
     "new": {
       "deaths": 103,
-      "confirmed": 2097,
+      "confirmed": null,
       "recovered": 427
     }
   },
@@ -22358,12 +22349,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1068,
-    "confirmed": 33366,
     "recovered": 2639,
-    "live": 33366,
+    "live": 0,
     "new": {
       "deaths": 94,
-      "confirmed": 1638,
+      "confirmed": null,
       "recovered": 417
     }
   },
@@ -23687,12 +23677,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1068,
-    "confirmed": 33366,
     "recovered": 2686,
-    "live": 33366,
+    "live": 0,
     "new": {
       "deaths": 0,
-      "confirmed": 0,
+      "confirmed": null,
       "recovered": 47
     }
   },
@@ -25016,12 +25005,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1310,
-    "confirmed": 48206,
     "recovered": 3459,
-    "live": 48206,
+    "live": 0,
     "new": {
       "deaths": 242,
-      "confirmed": 14840,
+      "confirmed": null,
       "recovered": 773
     }
   },
@@ -26345,12 +26333,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1457,
-    "confirmed": 54406,
     "recovered": 4774,
-    "live": 54406,
+    "live": 0,
     "new": {
       "deaths": 147,
-      "confirmed": 6200,
+      "confirmed": null,
       "recovered": 1315
     }
   },
@@ -27692,12 +27679,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1596,
-    "confirmed": 56249,
     "recovered": 5623,
-    "live": 56249,
+    "live": 0,
     "new": {
       "deaths": 139,
-      "confirmed": 1843,
+      "confirmed": null,
       "recovered": 849
     }
   },
@@ -29039,12 +29025,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1696,
-    "confirmed": 58182,
     "recovered": 6639,
-    "live": 58182,
+    "live": 0,
     "new": {
       "deaths": 100,
-      "confirmed": 1933,
+      "confirmed": null,
       "recovered": 1016
     }
   },
@@ -30386,12 +30371,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1789,
-    "confirmed": 59989,
     "recovered": 7862,
-    "live": 59989,
+    "live": 0,
     "new": {
       "deaths": 93,
-      "confirmed": 1807,
+      "confirmed": null,
       "recovered": 1223
     }
   },
@@ -31733,12 +31717,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 1921,
-    "confirmed": 61682,
     "recovered": 9128,
-    "live": 61682,
+    "live": 0,
     "new": {
       "deaths": 132,
-      "confirmed": 1693,
+      "confirmed": null,
       "recovered": 1266
     }
   },
@@ -33080,12 +33063,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2029,
-    "confirmed": 62031,
     "recovered": 10337,
-    "live": 62031,
+    "live": 0,
     "new": {
       "deaths": 108,
-      "confirmed": 349,
+      "confirmed": null,
       "recovered": 1209
     }
   },
@@ -34445,12 +34427,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2144,
-    "confirmed": 62442,
     "recovered": 11788,
-    "live": 62442,
+    "live": 0,
     "new": {
       "deaths": 115,
-      "confirmed": 411,
+      "confirmed": null,
       "recovered": 1451
     }
   },
@@ -35829,12 +35810,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2144,
-    "confirmed": 62662,
     "recovered": 11881,
-    "live": 62662,
+    "live": 0,
     "new": {
       "deaths": 0,
-      "confirmed": 220,
+      "confirmed": null,
       "recovered": 93
     }
   },
@@ -37287,12 +37267,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2346,
-    "confirmed": 64084,
     "recovered": 15299,
-    "live": 64084,
+    "live": 0,
     "new": {
       "deaths": 202,
-      "confirmed": 1422,
+      "confirmed": null,
       "recovered": 3418
     }
   },
@@ -38745,12 +38724,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2346,
-    "confirmed": 64084,
     "recovered": 15343,
-    "live": 64084,
+    "live": 0,
     "new": {
       "deaths": 0,
-      "confirmed": 0,
+      "confirmed": null,
       "recovered": 44
     }
   },
@@ -40239,12 +40217,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2495,
-    "confirmed": 64287,
     "recovered": 16748,
-    "live": 64287,
+    "live": 0,
     "new": {
       "deaths": 149,
-      "confirmed": 203,
+      "confirmed": null,
       "recovered": 1405
     }
   },
@@ -41842,12 +41819,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2563,
-    "confirmed": 64786,
     "recovered": 18971,
-    "live": 64786,
+    "live": 0,
     "new": {
       "deaths": 68,
-      "confirmed": 499,
+      "confirmed": null,
       "recovered": 2223
     }
   },
@@ -43499,12 +43475,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2615,
-    "confirmed": 65187,
     "recovered": 20969,
-    "live": 65187,
+    "live": 0,
     "new": {
       "deaths": 52,
-      "confirmed": 401,
+      "confirmed": null,
       "recovered": 1998
     }
   },
@@ -45264,12 +45239,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2641,
-    "confirmed": 65596,
     "recovered": 23383,
-    "live": 65596,
+    "live": 0,
     "new": {
       "deaths": 26,
-      "confirmed": 409,
+      "confirmed": null,
       "recovered": 2414
     }
   },
@@ -47139,12 +47113,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2682,
-    "confirmed": 65914,
     "recovered": 26403,
-    "live": 65914,
+    "live": 0,
     "new": {
       "deaths": 41,
-      "confirmed": 318,
+      "confirmed": null,
       "recovered": 3020
     }
   },
@@ -49104,12 +49077,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2727,
-    "confirmed": 66337,
     "recovered": 28993,
-    "live": 66337,
+    "live": 0,
     "new": {
       "deaths": 45,
-      "confirmed": 423,
+      "confirmed": null,
       "recovered": 2590
     }
   },
@@ -51215,12 +51187,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2761,
-    "confirmed": 66907,
     "recovered": 31536,
-    "live": 66907,
+    "live": 0,
     "new": {
       "deaths": 34,
-      "confirmed": 570,
+      "confirmed": null,
       "recovered": 2543
     }
   },
@@ -53436,12 +53407,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2803,
-    "confirmed": 67103,
     "recovered": 33934,
-    "live": 67103,
+    "live": 0,
     "new": {
       "deaths": 42,
-      "confirmed": 196,
+      "confirmed": null,
       "recovered": 2398
     }
   },
@@ -55934,12 +55904,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2835,
-    "confirmed": 67217,
     "recovered": 36208,
-    "live": 67217,
+    "live": 0,
     "new": {
       "deaths": 32,
-      "confirmed": 114,
+      "confirmed": null,
       "recovered": 2274
     }
   },
@@ -58582,12 +58551,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2871,
-    "confirmed": 67332,
     "recovered": 38557,
-    "live": 67332,
+    "live": 0,
     "new": {
       "deaths": 36,
-      "confirmed": 115,
+      "confirmed": null,
       "recovered": 2349
     }
   },
@@ -61396,12 +61364,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2902,
-    "confirmed": 67466,
     "recovered": 40592,
-    "live": 67466,
+    "live": 0,
     "new": {
       "deaths": 31,
-      "confirmed": 134,
+      "confirmed": null,
       "recovered": 2035
     }
   },
@@ -64453,12 +64420,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2931,
-    "confirmed": 67592,
     "recovered": 42033,
-    "live": 67592,
+    "live": 0,
     "new": {
       "deaths": 29,
-      "confirmed": 126,
+      "confirmed": null,
       "recovered": 1441
     }
   },
@@ -67902,12 +67868,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2959,
-    "confirmed": 67666,
     "recovered": 43500,
-    "live": 67666,
+    "live": 0,
     "new": {
       "deaths": 28,
-      "confirmed": 74,
+      "confirmed": null,
       "recovered": 1467
     }
   },
@@ -71821,12 +71786,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 2986,
-    "confirmed": 67707,
     "recovered": 45235,
-    "live": 67707,
+    "live": 0,
     "new": {
       "deaths": 27,
-      "confirmed": 41,
+      "confirmed": null,
       "recovered": 1735
     }
   },
@@ -76267,12 +76231,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3008,
-    "confirmed": 67743,
     "recovered": 46488,
-    "live": 67743,
+    "live": 0,
     "new": {
       "deaths": 22,
-      "confirmed": 36,
+      "confirmed": null,
       "recovered": 1253
     }
   },
@@ -80977,12 +80940,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3024,
-    "confirmed": 67760,
     "recovered": 47743,
-    "live": 67760,
+    "live": 0,
     "new": {
       "deaths": 16,
-      "confirmed": 17,
+      "confirmed": null,
       "recovered": 1255
     }
   },
@@ -81884,12 +81846,11 @@
     "lat": 43,
     "lng": 12,
     "deaths": 631,
-    "confirmed": 10149,
     "recovered": 724,
-    "live": 10149,
+    "live": 0,
     "new": {
       "deaths": 168,
-      "confirmed": 977,
+      "confirmed": null,
       "recovered": 0
     }
   },
@@ -84544,12 +84505,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3046,
-    "confirmed": 67773,
     "recovered": 49134,
-    "live": 67773,
+    "live": 0,
     "new": {
       "deaths": 22,
-      "confirmed": 13,
+      "confirmed": null,
       "recovered": 1391
     }
   },
@@ -85505,12 +85465,11 @@
     "lat": 43,
     "lng": 12,
     "deaths": 827,
-    "confirmed": 12462,
     "recovered": 1045,
-    "live": 12462,
+    "live": 0,
     "new": {
       "deaths": 196,
-      "confirmed": 2313,
+      "confirmed": null,
       "recovered": 321
     }
   },
@@ -88333,12 +88292,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3056,
-    "confirmed": 67781,
     "recovered": 50318,
-    "live": 67781,
+    "live": 0,
     "new": {
       "deaths": 10,
-      "confirmed": 8,
+      "confirmed": null,
       "recovered": 1184
     }
   },
@@ -89258,12 +89216,11 @@
     "lat": 32,
     "lng": 53,
     "deaths": 429,
-    "confirmed": 10075,
     "recovered": 2959,
-    "live": 10075,
+    "live": 0,
     "new": {
       "deaths": 75,
-      "confirmed": 1075,
+      "confirmed": null,
       "recovered": 0
     }
   },
@@ -89330,12 +89287,11 @@
     "lat": 43,
     "lng": 12,
     "deaths": 827,
-    "confirmed": 12462,
     "recovered": 1045,
-    "live": 12462,
+    "live": 0,
     "new": {
       "deaths": 0,
-      "confirmed": 0,
+      "confirmed": null,
       "recovered": 0
     }
   },
@@ -92345,12 +92301,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3062,
-    "confirmed": 67786,
     "recovered": 51553,
-    "live": 67786,
+    "live": 0,
     "new": {
       "deaths": 6,
-      "confirmed": 5,
+      "confirmed": null,
       "recovered": 1235
     }
   },
@@ -93343,12 +93298,11 @@
     "lat": 32,
     "lng": 53,
     "deaths": 514,
-    "confirmed": 11364,
     "recovered": 2959,
-    "live": 11364,
+    "live": 0,
     "new": {
       "deaths": 85,
-      "confirmed": 1289,
+      "confirmed": null,
       "recovered": 0
     }
   },
@@ -93415,12 +93369,11 @@
     "lat": 43,
     "lng": 12,
     "deaths": 1266,
-    "confirmed": 17660,
     "recovered": 1439,
-    "live": 17660,
+    "live": 0,
     "new": {
       "deaths": 439,
-      "confirmed": 5198,
+      "confirmed": null,
       "recovered": 394
     }
   },
@@ -96560,12 +96513,11 @@
     "lat": 30.9756,
     "lng": 112.2707,
     "deaths": 3075,
-    "confirmed": 67790,
     "recovered": 52960,
-    "live": 67790,
+    "live": 0,
     "new": {
       "deaths": 13,
-      "confirmed": 4,
+      "confirmed": null,
       "recovered": 1407
     }
   },
@@ -97682,12 +97634,11 @@
     "lat": 32,
     "lng": 53,
     "deaths": 611,
-    "confirmed": 12729,
     "recovered": 2959,
-    "live": 12729,
+    "live": 0,
     "new": {
       "deaths": 97,
-      "confirmed": 1365,
+      "confirmed": null,
       "recovered": 0
     }
   },
@@ -97754,12 +97705,11 @@
     "lat": 43,
     "lng": 12,
     "deaths": 1441,
-    "confirmed": 21157,
     "recovered": 1966,
-    "live": 21157,
+    "live": 0,
     "new": {
       "deaths": 175,
-      "confirmed": 3497,
+      "confirmed": null,
       "recovered": 527
     }
   },
