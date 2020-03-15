@@ -1086,5 +1086,17 @@ module.exports = {
   "congo (kinshasa)": [
     "CD",
     "COD"
+  ],
+  "curacao": [
+    null,
+    null
+  ],
+  "eswatini": [
+    "SZ",
+    "SWZ"
+  ],
+  "saint vincent and the grenadines": [
+    "SZ",
+    null
   ]
 };
