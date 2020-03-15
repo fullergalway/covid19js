@@ -3,12 +3,17 @@ const covid19data = require('../src/covid19data');
 const covid19data_json = __dirname + '/../dist/covid19data.json'
 const covid19 = require('../dist/covid19')
 const covid19_json = __dirname + '/../dist/covid19.json'
-const writejson =(filename, data, pretty=false)=>{
+const writejson =(filename, write)=>{
 fs.unlink(filename, ()=>{
         let out = fs.createWriteStream(filename);
-        out.write(pretty?JSON.stringify(data,null,2):JSON.stringify(data));
+        write(out);
         out.end();
       });
 }
-writejson(covid19data_json, covid19data)
-writejson(covid19_json, covid19.data(),true)
+writejson(covid19data_json, (out)=>out.write(JSON.stringify(covid19data)));
+writejson(covid19_json, (out)=>{
+    let data = covid19.data();
+    out.write("[\n");
+    out.write(data.map(l=>JSON.stringify(l)).join("\n"));
+    out.write("\n];\n")
+})
