@@ -255,6 +255,9 @@ class Covid19 {
     }
     refresh(verbose){
         var now = new Date().getTime();
+        if(typeof(fetch)==='undefined'){
+            return Promise.resolve(this.data());
+        }
         // not more than once per minute
         if(now - this._lastrefresh < 60000){
             if(verbose) console.log("skipping refresh (too soon)");
