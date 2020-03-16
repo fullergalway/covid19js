@@ -3,7 +3,11 @@ Coronavirus COVID-19 outbreak data with zero dependencies, for web developers.
 
 Data is generated from [2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19)
 
-[View the examples live](https://covid19js.com)
+## Visualisations using the data
+ * https://observablehq.com/@fullergalway/coronavirus-covid-19
+ * https://observablehq.com/@fullergalway/coronavirus-covid-19/2
+
+[View the examples below live](https://covid19js.com)
 
 ## Getting Started
 
