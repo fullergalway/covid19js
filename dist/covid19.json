@@ -5634,4 +5634,4 @@
 {"date":"2020-03-15","country_iso2":"UZ","country_iso3":"UZB","continent":"AS","country_region":"Uzbekistan","lat":41.3775,"lng":64.5853,"deaths":0,"confirmed":1,"recovered":0,"live":1,"new":{"deaths":0,"confirmed":1,"recovered":0}},
 {"date":"2020-03-15","country_iso2":"VE","country_iso3":"VEN","continent":"SA","country_region":"Venezuela","lat":6.4238,"lng":-66.5897,"deaths":0,"confirmed":8,"recovered":0,"live":8,"new":{"deaths":0,"confirmed":6,"recovered":0}},
 {"date":"2020-03-15","country_iso2":"VN","country_iso3":"VNM","continent":"AS","country_region":"Vietnam","lat":16,"lng":108,"deaths":0,"confirmed":56,"recovered":16,"live":56,"new":{"deaths":0,"confirmed":3,"recovered":0}}
-];
+]
