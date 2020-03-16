@@ -1098,5 +1098,13 @@ module.exports = {
   "saint vincent and the grenadines": [
     "SZ",
     null
+  ],
+  "kosovo": [
+    null,
+    "RKS"
+  ],
+  "congo (brazzaville)": [
+    "CD",
+    "COD"
   ]
 };
