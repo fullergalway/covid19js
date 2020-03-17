@@ -1106,5 +1106,13 @@ module.exports = {
   "congo (brazzaville)": [
     "CD",
     "COD"
+  ],
+  "republic of the congo": [
+    "CG",
+    "COG"
+  ],
+  "the bahamas": [
+    "CG",
+    null
   ]
 };
