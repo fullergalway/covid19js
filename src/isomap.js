@@ -1114,5 +1114,9 @@ module.exports = {
   "the bahamas": [
     "CG",
     null
+  ],
+  "the gambia": [
+    "GM",
+    "GMB"
   ]
 };
