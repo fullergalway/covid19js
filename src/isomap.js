@@ -1118,5 +1118,9 @@ module.exports = {
   "the gambia": [
     "GM",
     "GMB"
+  ],
+  "gambia, the": [
+    "GM",
+    "GMB"
   ]
 };
