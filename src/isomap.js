@@ -1126,5 +1126,9 @@ module.exports = {
   "bahamas, the": [
     null,
     null
+  ],
+  "cabo verde": [
+    null,
+    null
   ]
 };
