@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test_pop": "node test/test_pop.js",
     "build": "node scripts/update.js && webpack && node scripts/generate_covid19data_json.js"
   },
   "author": "Robert Fuller",
