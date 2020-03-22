@@ -1130,5 +1130,9 @@ module.exports = {
   "cabo verde": [
     null,
     null
+  ],
+  "east timor": [
+    "TL",
+    "TLS"
   ]
 };
