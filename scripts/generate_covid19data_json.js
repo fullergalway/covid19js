@@ -4,6 +4,9 @@ const covid19data_json = __dirname + '/../dist/covid19data.json'
 const covid19 = require('../dist/covid19')
 const covid19_json = __dirname + '/../dist/covid19.json'
 const covid19latest_json = __dirname + '/../dist/covid19latest.json'
+const population19 = require("./population");
+const population_json = __dirname + '/../dist/population.json';
+
 const writejson =(filename, write)=>{
 fs.unlink(filename, ()=>{
         let out = fs.createWriteStream(filename);
@@ -19,3 +22,4 @@ const writeabitpretty = (data,out)=> {
 }
 writejson(covid19_json, writeabitpretty.bind(null,covid19.data()))
 writejson(covid19latest_json, writeabitpretty.bind(null,covid19.data().latest()));
+writejson(population_json, (out) => out.write(JSON.stringify(population19.data())));
