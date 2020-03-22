@@ -19,7 +19,8 @@ const unpack = (packed)=>{
         recovered: unpackdata(packed.recovered),
         deaths: unpackdata(packed.deaths),
         isomap: unpackhash(packed.isomap),
-        continents: unpackhash(packed.continents)
+        continents: unpackhash(packed.continents),
+        population: unpackhash(packed.population)
     };
     return covid19data;
 }

@@ -104,11 +104,14 @@ const csv2js = () => {
                 // compress isomap.js
                 writeModuleCompressed(isomapout,"src/tmp/isomap.js");
                 writeModuleCompressed(continents_out,"src/tmp/continents.js",true);
-                writeValues();
                 if(isomap_changed){
                   console.log(isomap);
                     writeModule(isomap, "src/isomap.js",true);
                 }
+                population = require("./population").data();
+                writeModuleCompressed(population,"src/tmp/population.js",true);
+
+                writeValues();
               }
             });
     });

@@ -75,8 +75,6 @@ class Covid19Array extends Array{
                 continent: null,
                 country_region: null,
                 province_state: null,
-                lat: null,
-                lng: null,
                 confirmed: 0,
                 deaths: 0,
                 recovered: 0,
@@ -85,7 +83,10 @@ class Covid19Array extends Array{
                     confirmed: 0,
                     deaths: 0,
                     recovered: 0,
-                }
+                },
+                lat: null,
+                lng: null,
+                country_population: null,
             };
         const n = this.length;
         for(var i=0;i<n;i++){
@@ -98,6 +99,7 @@ class Covid19Array extends Array{
                 totals.country_region = o.country_region;
                 totals.country_iso2 = o.country_iso2;
                 totals.country_iso3 = o.country_iso3;
+                totals.country_population = o.country_population;
                 totals.continent = o.continent;
                 totals.lat = o.lat;
                 totals.lng = o.lng;
@@ -115,6 +117,7 @@ class Covid19Array extends Array{
                 if(totals.country_iso2 !== o.country_iso2){
                     delete totals.country_iso2;
                     delete totals.country_iso3;
+                    delete totals.country_population;
                 }
                 if(totals.continent !== o.continent){
                     delete totals.continent;
@@ -166,6 +169,7 @@ const a2o = function(cv19d,a,key){
         for(let i=4; i<n;i++){
             let country_iso2 = cv19d.isomap[country_region]?cv19d.isomap[country_region][0]:null;
             let country_iso3 = cv19d.isomap[country_region]?cv19d.isomap[country_region][1]:null;
+            let country_population = cv19d.population[country_iso2];
             let continent = cv19d.continents[country_iso2];
             let o = {
                 date: parseDate(header[i]).toISOString().substring(0,10),
@@ -174,17 +178,18 @@ const a2o = function(cv19d,a,key){
                 continent: continent,
                 country_region: country_region,
                 province_state: province_state,
-                lat: lat,
-                lng: lng,
-                deaths: 0,
                 confirmed: 0,
+                deaths: 0,
                 recovered: 0,
                 live: 0,
                 new: {
                     deaths: 0,
                     confirmed: 0,
                     recovered: 0,
-                }
+                },
+                lat: lat,
+                lng: lng,
+                country_population: country_population
             };
             if(province_state === null || province_state === ""){
                 delete o.province_state;
@@ -192,6 +197,9 @@ const a2o = function(cv19d,a,key){
             if(!country_iso2){
                 delete o.country_iso2;
                 delete o.country_iso3;
+            }
+            if(!country_population){
+                delete o.country_population;
             }
             if(!continent){
                 delete o.continent;

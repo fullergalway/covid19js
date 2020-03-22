@@ -4,5 +4,6 @@ module.exports = {
     recovered: require('./tmp/recovered'),
     deaths: require('./tmp/deaths'),
     isomap: require('./tmp/isomap'),
-    continents: require('./tmp/continents')
+    continents: require('./tmp/continents'),
+    population: require('./tmp/population')
 }
