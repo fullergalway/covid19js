@@ -1134,5 +1134,9 @@ module.exports = {
   "east timor": [
     "TL",
     "TLS"
+  ],
+  "syria": [
+    "SY",
+    "SYR"
   ]
 };
