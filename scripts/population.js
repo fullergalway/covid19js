@@ -2965,7 +2965,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population mid-year estimates (millions)",
             "Value": 11.5131,
@@ -2973,7 +2973,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population mid-year estimates for males (millions)",
             "Value": 5.7796,
@@ -2981,7 +2981,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population mid-year estimates for females (millions)",
             "Value": 5.7335,
@@ -2989,7 +2989,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Sex ratio (males per 100 females)",
             "Value": 100.8044,
@@ -2997,7 +2997,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population aged 0 to 14 years old (percentage)",
             "Value": 30.6253,
@@ -3005,7 +3005,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population aged 60+ years old (percentage)",
             "Value": 10.1862,
@@ -3013,7 +3013,7 @@ function rawData() {
         },
         {
             "ID": 68,
-            "Location": "Bolivia (Plurin. State of)",
+            "Location": "Bolivia",
             "Year": 2019,
             "What": "Population density",
             "Value": 10.6278,
@@ -4317,7 +4317,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population mid-year estimates (millions)",
             "Value": 25.7165,
@@ -4325,7 +4325,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population mid-year estimates for males (millions)",
             "Value": 12.9742,
@@ -4333,7 +4333,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population mid-year estimates for females (millions)",
             "Value": 12.7423,
@@ -4341,7 +4341,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Sex ratio (males per 100 females)",
             "Value": 101.8196,
@@ -4349,7 +4349,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population aged 0 to 14 years old (percentage)",
             "Value": 41.7147,
@@ -4357,7 +4357,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population aged 60+ years old (percentage)",
             "Value": 4.6718,
@@ -4365,7 +4365,7 @@ function rawData() {
         },
         {
             "ID": 384,
-            "Location": "C�te d�Ivoire",
+            "Location": "Cote d'Ivoire",
             "Year": 2019,
             "What": "Population density",
             "Value": 80.8696,
@@ -12893,7 +12893,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population mid-year estimates (millions)",
             "Value": 58.0055,
@@ -12901,7 +12901,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population mid-year estimates for males (millions)",
             "Value": 28.9806,
@@ -12909,7 +12909,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population mid-year estimates for females (millions)",
             "Value": 29.0248,
@@ -12917,7 +12917,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Sex ratio (males per 100 females)",
             "Value": 99.8477,
@@ -12925,7 +12925,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population aged 0 to 14 years old (percentage)",
             "Value": 43.8438,
@@ -12933,7 +12933,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population aged 60+ years old (percentage)",
             "Value": 4.184,
@@ -12941,7 +12941,7 @@ function rawData() {
         },
         {
             "ID": 834,
-            "Location": "United Rep. of Tanzania",
+            "Location": "Tanzania",
             "Year": 2019,
             "What": "Population density",
             "Value": 65.4837,
@@ -12998,6 +12998,62 @@ function rawData() {
         {
             "ID": 840,
             "Location": "United States of America",
+            "Year": 2019,
+            "What": "Population density",
+            "Value": 35.9735,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
+            "Year": 2019,
+            "What": "Population mid-year estimates (millions)",
+            "Value": 329.0649,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "United States of America",
+            "Year": 2019,
+            "What": "Population mid-year estimates for males (millions)",
+            "Value": 162.8263,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
+            "Year": 2019,
+            "What": "Population mid-year estimates for females (millions)",
+            "Value": 166.2386,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
+            "Year": 2019,
+            "What": "Sex ratio (males per 100 females)",
+            "Value": 97.9473,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
+            "Year": 2019,
+            "What": "Population aged 0 to 14 years old (percentage)",
+            "Value": 18.5493,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
+            "Year": 2019,
+            "What": "Population aged 60+ years old (percentage)",
+            "Value": 22.418,
+            "Notes": ""
+        },
+        {
+            "ID": 840,
+            "Location": "US",
             "Year": 2019,
             "What": "Population density",
             "Value": 35.9735,

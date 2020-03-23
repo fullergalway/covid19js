@@ -82,7 +82,9 @@ const csv2js = () => {
                 let country = (""+data[1]).trim();
                 let isocountry = country.toLowerCase()
                                 .replace("st.","saint")
-                                .replace(/ sar$/,"");
+                                .replace(/ sar$/,"")
+                                .replace(/, The$/,"")
+                                ;
                 if(!(isomap[isocountry]&&isomap[isocountry][0])){
                     let lat = parseFloat(data[2]);
                     let lng = parseFloat(data[3]);
