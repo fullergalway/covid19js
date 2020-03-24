@@ -16,7 +16,7 @@ const unpack = (packed)=>{
 
     let covid19data = {
         confirmed: unpackdata(packed.confirmed),
-        recovered: unpackdata(packed.recovered),
+        //recovered: unpackdata(packed.recovered), //recovered missing from input as of 2020/03/24
         deaths: unpackdata(packed.deaths),
         isomap: unpackhash(packed.isomap),
         continents: unpackhash(packed.continents),

@@ -10,7 +10,7 @@ const getCountryISO2 = require("country-iso-3-to-2");
 const country_continent = require("../src/country_continent");
 const continents_out = {};
 
-const variables = ["Confirmed","Deaths","Recovered"];
+const variables = ["confirmed","deaths"];//,"Recovered"]; //recovered missing from input as of 2020/03/24
 require("../src/compress");
 
 const csv2js = () => {
@@ -65,7 +65,7 @@ const csv2js = () => {
    let filename = "src/tmp/"+variable.toLowerCase()+".js";
    fs.unlink(filename, ()=>{
         let out = fs.createWriteStream(filename);
-        let csvFilePath=`COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-${variable}.csv`
+        let csvFilePath=`COVID-19/./csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_${variable}_global.csv`
         out.write("module.exports = ");
          csv({noheader: true, headers: null, output: "csv"})
            .fromFile(csvFilePath)

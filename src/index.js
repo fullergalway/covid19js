@@ -229,15 +229,17 @@ const expandMergeCovid19Data = function(cv19d){
         keyed[key(o)].deaths = o.deaths;
         keyed[key(o)].new.deaths = o.new.deaths;
     });
+    if(false){ //recovered missing as of 2020/04/20
     const recovered = a2o(cv19d,cv19d.recovered,"recovered");
-    recovered.forEach(o=>{
-        if(!keyed[key(o)]){
-            keyed[key(o)] = o;
-            results.push(o);
-        }
-        keyed[key(o)].recovered = o.recovered;
-        keyed[key(o)].new.recovered = o.new.recovered;
-    });
+        recovered.forEach(o=>{
+            if(!keyed[key(o)]){
+                keyed[key(o)] = o;
+                results.push(o);
+            }
+            keyed[key(o)].recovered = o.recovered;
+            keyed[key(o)].new.recovered = o.new.recovered;
+        });
+    }
     results = results.filter(o=>o.confirmed||o.recovered||o.deaths);
     results.sort((a,b)=>{
         if(a.date === b.date){
