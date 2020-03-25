@@ -1138,5 +1138,13 @@ module.exports = {
   "syria": [
     "SY",
     "SYR"
+  ],
+  "laos": [
+    "LA",
+    "LAO"
+  ],
+  "libya": [
+    "LY",
+    "LBY"
   ]
 };
