@@ -1146,5 +1146,9 @@ module.exports = {
   "libya": [
     "LY",
     "LBY"
+  ],
+  "diamond princess": [
+    null,
+    null
   ]
 };
