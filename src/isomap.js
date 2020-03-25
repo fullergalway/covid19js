@@ -1150,5 +1150,9 @@ module.exports = {
   "diamond princess": [
     null,
     null
+  ],
+  "the west bank and gaza": [
+    "PS",
+    "PSE"
   ]
 };
