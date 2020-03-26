@@ -1154,5 +1154,9 @@ module.exports = {
   "the west bank and gaza": [
     "PS",
     "PSE"
+  ],
+  "west bank and gaza": [
+    "PS",
+    "PSE"
   ]
 };
