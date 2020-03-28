@@ -1158,5 +1158,9 @@ module.exports = {
   "west bank and gaza": [
     "PS",
     "PSE"
+  ],
+  "burma": [
+    "MM",
+    "MMR"
   ]
 };
