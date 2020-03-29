@@ -1162,5 +1162,9 @@ module.exports = {
   "burma": [
     "MM",
     "MMR"
+  ],
+  "ms zaandam": [
+    null,
+    null
   ]
 };
