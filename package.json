@@ -16,8 +16,8 @@
     "country-iso-2-to-3": "^1.1.0",
     "country-iso-3-to-2": "^1.1.0",
     "csvtojson": "^2.0.10",
-    "simple-git": "^1.131.0",
-    "webpack": "^4.42.0",
+    "simple-git": "^1.132.0",
+    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "which-country": "^1.0.0"
   }
