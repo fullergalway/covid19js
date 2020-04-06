@@ -1166,5 +1166,9 @@ module.exports = {
   "ms zaandam": [
     null,
     null
+  ],
+  "south sudan": [
+    "SS",
+    "SSD"
   ]
 };
