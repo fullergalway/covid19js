@@ -1170,5 +1170,13 @@ module.exports = {
   "south sudan": [
     "SS",
     "SSD"
+  ],
+  "country/region": [
+    null,
+    null
+  ],
+  "undefined": [
+    null,
+    null
   ]
 };
