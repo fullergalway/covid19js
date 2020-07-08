@@ -1,3 +1,5 @@
+# UPDATES TO THIS PROJECT ENDED 2020-07-08
+
 # covid19js
 Coronavirus COVID-19 outbreak data with zero dependencies, for web developers.
 
